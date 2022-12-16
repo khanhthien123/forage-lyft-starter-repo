@@ -11,7 +11,7 @@ class Car(ABC):
 
     @abstractmethod
     def needs_service(self):
-        return self.engine.needs_service() and self.battery.needs_service()
+        return self.engine.needs_service() or self.battery.needs_service()
 
 class CarFactory():
     def create_calliope(current_date, last_service_date, current_mileage, last_service_mileage):
