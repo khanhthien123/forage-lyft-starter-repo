@@ -1,15 +1,14 @@
-from abc import ABC, abstractmethod
+from serviceable import Serviceable
 from datetime import date
 from battery import Spindler, Nubbin
 from carEngine import Capulet, Willoughby, Sternman
 
 
-class Car(ABC):
+class Car(Serviceable):
     def __init__(self, engine, battery):
         self.battery = battery
         self.engine = engine
 
-    @abstractmethod
     def needs_service(self):
         return self.engine.needs_service() or self.battery.needs_service()
 
