@@ -1,7 +1,9 @@
 from serviceable import Serviceable
-from datetime import date
-from battery import Spindler, Nubbin
-from carEngine import Capulet, Willoughby, Sternman
+from battery.spindler import Spindler
+from battery.nubbin import Nubbin
+from engine.capulet import Capulet
+from engine.sternman import Sternman
+from engine.willoughby import Willoughby
 
 
 class Car(Serviceable):
@@ -26,7 +28,7 @@ class CarFactory():
     def create_palindrome(current_date, last_service_date, warning_light_on):
         newEngine = Sternman(warning_light_on)
         newBattery = Spindler(last_service_date, current_date)
-        return Car(Sternman, Spindler)
+        return Car(newBattery, newEngine)
 
     def create_rorschach(current_date, last_service_date, current_mileage, last_service_mileage):
         newEngine = Willoughby(last_service_mileage, current_mileage)
