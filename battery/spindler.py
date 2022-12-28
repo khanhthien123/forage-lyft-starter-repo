@@ -6,5 +6,5 @@ class Spindler(Battery):
         self.current_date = current_date
 
     def needs_service(self):
-        diff = self.current_date.toordinal() - self.last_service_date.toordinal()
-        return diff // 365 >= 2
+        dateBatteryShouldBeServiced = self.last_service_date.replace(year=self.last_service_date.year + 2)
+        return dateBatteryShouldBeServiced < self.current_date

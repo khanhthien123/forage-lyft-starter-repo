@@ -15,26 +15,31 @@ class Car(Serviceable):
         return self.engine.needs_service() or self.battery.needs_service()
 
 class CarFactory():
+    @staticmethod
     def create_calliope(current_date, last_service_date, current_mileage, last_service_mileage):
         newEngine = Capulet(last_service_mileage, current_mileage)
         newBattery = Spindler(last_service_date, current_date)
         return Car(newBattery, newEngine)
 
+    @staticmethod
     def create_glissade(current_date, last_service_date, current_mileage, last_service_mileage):
         newEngine = Willoughby(last_service_mileage, current_mileage)
         newBattery = Spindler(last_service_date, current_date)
         return Car(newBattery, newEngine)
 
+    @staticmethod
     def create_palindrome(current_date, last_service_date, warning_light_on):
         newEngine = Sternman(warning_light_on)
         newBattery = Spindler(last_service_date, current_date)
         return Car(newBattery, newEngine)
 
+    @staticmethod
     def create_rorschach(current_date, last_service_date, current_mileage, last_service_mileage):
         newEngine = Willoughby(last_service_mileage, current_mileage)
         newBattery = Nubbin(last_service_date, current_date)
         return Car(newEngine, newBattery)
 
+    @staticmethod
     def create_thovex(current_date, last_service_date, current_mileage, last_service_mileage):
         newEngine = Capulet(last_service_mileage, current_mileage)
         newBattery = Nubbin(last_service_date, current_date)
