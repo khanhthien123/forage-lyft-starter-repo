@@ -6,5 +6,5 @@ class Nubbin(Battery):
         self.current_date = current_date
 
     def needs_service(self):
-        diff = self.current_date.toordinal() - self.last_service_date.toordinal()
-        return diff // 365 >= 4
+        dateBatteryShouldBeServiced = self.last_service_date.replace(year=self.last_service_date.year + 4)
+        return dateBatteryShouldBeServiced < self.current_date
